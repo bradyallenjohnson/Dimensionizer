@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+  <!--
+      Root Dimension 
+   -->
+
+  <bean id="rootDimension" name="root" class="dimensionizer.Dimension">
+  	<property name="nestedDimension">
+  	  <util:list>
+        <ref bean="wing"/>
+        <ref bean="elevator"/>
+        <ref bean="rudder"/>
+        <ref bean="fuselage"/>
+        <ref bean="wheels"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Slow Stick</value> </property>
+  </bean>
+
+  <!--
+      Dimension Groups
+      Wing, Elevator, Rudder, Fuselage, Wheels  
+   -->
+
+  <bean id="dGroupWing" name="wing" class="dimensionizer.Dimension">
+  	<property name="nestedDimension">
+  	  <util:list>
+        <ref bean="dimensionWingHalfWidth"/>
+        <ref bean="dimensionWingHalfHeight"/>
+        <ref bean="dimensionWingHalfExtensionWidth"/>
+        <ref bean="dimensionWingHighPointWidth"/>
+        <ref bean="dimensionWingHighPointHeight"/>
+        <ref bean="dimensionWingAileronLength"/>
+        <ref bean="dimensionWingAileronWidth"/>
+        <ref bean="dimensionWingDihedralHeight"/>
+        <ref bean="dimensionWingDihedralLength"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Wing</value> </property>
+  </bean>
+
+  <bean id="dGroupElevator" name="elevator" class="dimensionizer.Dimension">
+  	<property name="nestedDimension">
+  	  <util:list>
+        <ref bean="dimensionElevatorWidth"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Elevator</value> </property>
+  </bean>
+
+  <bean id="dGroupRudder" name="rudder" class="dimensionizer.Dimension">
+    <property name="nestedDimension">
+  	  <util:list>
+        <ref bean="dimensionRudderLength"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Rudder</value> </property>
+  </bean>
+
+  <bean id="dGroupFuselage" name="fuselage" class="dimensionizer.Dimension">
+  	<property name="nestedDimension">
+  	  <util:list>
+        <ref bean="dimensionFuselageLength"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Fuselage</value> </property>
+  </bean>
+
+  <bean id="dGroupWheels" name="wheels" class="dimensionizer.Dimension">
+  	<property name="nestedDimension">
+  	  <util:list>
+        <ref bean="dimensionBigWheelDiameter"/>
+        <ref bean="dimensionSmallWheelDiameter"/>
+      </util:list>
+    </property>
+    <property name="dimensionName"> <value>Wheels</value> </property>
+  </bean>
+
+  <!--
+      Dimensions 
+   -->
+
+		<!-- Wing Dimensions -->
+
+   <bean id="dimensionWingHalfWidth" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingHalfWidth</value> </property>
+     <property name="dimension"> <value>29.5</value> </property>
+   </bean>
+   <bean id="dimensionWingHalfHeight" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingHalfHeight</value> </property>
+     <property name="dimension"> <value>48.5</value> </property>
+   </bean>
+   <bean id="dimensionWingHalfExtensionWidth" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingHalfExtensionWidth</value> </property>
+     <property name="dimension"> <value>11</value> </property>
+   </bean>
+   <bean id="dimensionWingHighPointWidth" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingHighPointWidth</value> </property>
+     <property name="dimension"> <value>7</value> </property>
+   </bean>
+   <bean id="dimensionWingHighPointHeight" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingHighPointHeight</value> </property>
+     <property name="dimension"> <value>3</value> </property>
+   </bean>
+   <bean id="dimensionWingAileronLength" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingAileronLength</value> </property>
+     <property name="dimension"> <value>25.75</value> </property>
+   </bean>
+      <bean id="dimensionWingAileronWidth" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingAileronWidth</value> </property>
+     <property name="dimension"> <value>6</value> </property>
+   </bean>
+   <bean id="dimensionWingDihedralHeight" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingDihedralHeight</value> </property>
+     <property name="dimension"> <value>0</value> </property>
+   </bean>
+   <bean id="dimensionWingDihedralLength" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>WingDihedralLength</value> </property>
+     <property name="dimension"> <value>0</value> </property>
+   </bean>
+
+		<!-- Elevator Dimensions -->
+
+   <bean id="dimensionElevatorWidth" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>ElevatorWidth</value> </property>
+     <property name="dimension"> <value>18.5</value> </property>
+   </bean>
+   
+   
+		<!-- Rudder Dimensions -->
+
+   <bean id="dimensionRudderLength" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>RudderLength</value> </property>
+     <property name="dimension"> <value>29.5</value> </property>
+   </bean>
+   
+   
+		<!-- Fuselage Dimensions -->
+
+   <bean id="dimensionFuselageLength" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>FuselageLength</value> </property>
+     <property name="dimension"> <value>80.5</value> </property>
+   </bean>
+   
+   
+		<!-- Wheels Dimensions -->
+   <bean id="dimensionBigWheelDiameter" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>BigWheelDiameter</value> </property>
+     <property name="dimension"> <value>7.5</value> </property>
+   </bean>
+   <bean id="dimensionSmallWheelDiameter" class="dimensionizer.Dimension">
+     <property name="dimensionName"> <value>SmallWheelDiameter</value> </property>
+     <property name="dimension"> <value>2.5</value> </property>
+   </bean>
+
+</beans>
+

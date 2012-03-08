@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/BradyStuff/devtools/spring-framework-2.5/spring-framework-2.5/dist/spring.jar"/>
+	<classpathentry kind="lib" path="C:/BradyStuff/devtools/commons-logging-1.1.1-bin/commons-logging-1.1.1/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
